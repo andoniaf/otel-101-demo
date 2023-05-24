@@ -28,6 +28,11 @@ down-otel:
 down:
 	docker-compose ${COMPOSE_FILES} down
 
+.PHONY: build-script
+## Build go binary script
+build-script:
+	@-mv demo-script/otel-101-demo demo-script/otel-101-demo.old
+	cd demo-script && go build -o otel-101-demo .
 
 
 ###################################################################
