@@ -13,7 +13,7 @@ func RunOtelDemo() *Run {
 	r.Step(S(
 		"Opentelemetry provides a demo environment more",
 		"complete than the one I created.",
-		"(It wasn't hard...)",
+		"(It wasn't hard to be honest...)",
 		"",
 		"Here they have an architecture overview:",
 	), S(

@@ -11,11 +11,12 @@ func RunDemoSimple() *Run {
 	)
 
 	r.Step(S(
+		"I've prepared two simple containers:",
+		"",
 		"(this is cool right, it feels like Matrix...)",
 		"(Well, let's focus)",
 		"",
 		"",
-		"I've prepared two simple containers:",
 		"- One with auto instrumentation",
 		"- One with manual instrumentation",
 	), S(
@@ -40,8 +41,8 @@ func RunDemoSimple() *Run {
 		"Let's do some requests to both containers",
 		"and check how we see those traces in Jaeger:",
 	), S(
-		"curl -w '\n' localhost:4567 &&",
-		"curl -w '\n' localhost:4568 &&",
+		"curl localhost:4567; echo &&",
+		"curl localhost:4568; echo &&",
 		"open http://localhost:16686",
 	))
 
@@ -49,8 +50,8 @@ func RunDemoSimple() *Run {
 		"Okey, let's do now some requests to the",
 		"/attributes endpoint:",
 	), S(
-		"curl -w '\n' localhost:4567/attributes &&",
-		"curl -w '\n' localhost:4568/attributes &&",
+		"curl localhost:4567/attributes; echo &&",
+		"curl localhost:4568/attributes; echo &&",
 		"open http://localhost:16686",
 	))
 
