@@ -28,10 +28,28 @@ func RunOtelDemo() *Run {
 	))
 
 	r.Step(S(
-		"and now the traces:",
+		"and now the traces for that service:",
 	), S(
-		"open \"http://$(docker-compose -f opentelemetry-demo/docker-compose.yml port jaeger 16686)\"",
+		"open \"http://$(docker-compose -f opentelemetry-demo/docker-compose.yml port jaeger 16686)/jaeger/ui/search?limit=20&service=emailservice\"",
 	))
+
+	r.Step(S(
+		"We could also check all the traces from the 'paymentservice'",
+		"using VISA cards:",
+	), S(
+		"open \"http://$(docker-compose -f opentelemetry-demo/docker-compose.yml port jaeger 16686)/jaeger/ui/search?limit=20&lookback=1h&service=paymentservice&tags=%7B%22app.payment.card_type%22%3A%22visa%22%7D\"",
+	))
+
+	r.Step(S(
+		"Or the traces from the 'frontend', that were okey (200)",
+		"and took more than 350ms:",
+	), S(
+		"open \"http://$(docker-compose -f opentelemetry-demo/docker-compose.yml port jaeger 16686)/jaeger/ui/search?limit=20&lookback=1h&minDuration=350ms&service=frontend\"",
+	))
+
+	r.Step(S(
+		"And that's it for the Opentelemetry Demo demo!",
+	), nil)
 
 	return r
 }

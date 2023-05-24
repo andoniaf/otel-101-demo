@@ -55,5 +55,9 @@ func RunDemoSimple() *Run {
 		"open http://localhost:16686",
 	))
 
+	r.Step(S(
+		"And that's it for the simple demo!",
+	), nil)
+
 	return r
 }

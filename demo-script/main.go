@@ -8,9 +8,9 @@ import (
 
 func main() {
 	d := New()
-	d.Name = "Opentelemetry 101 demo"
+	d.Name = "otel-101-demo"
 	d.HideVersion = true
-	d.Usage = "Run Otel 101 demo"
+	d.Usage = "Run Opentelemetry 101 demo"
 	d.Authors = []*cli.Author{{
 		Name: "Andoni Alonso", Email: "andonialonsof@gmail.com",
 	}}
