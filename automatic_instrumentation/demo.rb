@@ -12,5 +12,5 @@ get '/attributes' do
     "app.demo.example" => "auto"
   })
 
-  'Hello manual world! With attributes'
+  'Hello automatic world! With attributes'
 end
